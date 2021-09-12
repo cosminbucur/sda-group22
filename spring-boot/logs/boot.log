@@ -1,8 +1,0 @@
-2021-09-11 12:53:10.506  INFO 215517 --- [main] c.s.spring.boot.SpringBoot2Application   : Starting SpringBoot2Application on KMB-5CG9503JR6 with PID 215517 (/home/cosbuc/dev/sda/sda-group22/spring-boot/target/classes started by cosbuc in /home/cosbuc/dev/sda/sda-group22)
-2021-09-11 12:53:10.513  INFO 215517 --- [main] c.s.spring.boot.SpringBoot2Application   : No active profile set, falling back to default profiles: default
-2021-09-11 12:53:11.447  INFO 215517 --- [main] c.s.spring.boot.SpringBoot2Application   : Started SpringBoot2Application in 1.914 seconds (JVM running for 3.137)
-2021-09-11 12:53:11.449  INFO 215517 --- [main] c.s.spring.boot.CustomCommandLineRunner  : --- in custom command line runner
-2021-09-11 12:53:11.449  INFO 215517 --- [main] com.sda.spring.boot.MyComponent          : --- in complex operation
-2021-09-11 12:53:11.449 ERROR 215517 --- [main] c.s.spring.boot.logging.LoggerComponent  : error message with 10 issues
-2021-09-11 12:53:11.450  WARN 215517 --- [main] c.s.spring.boot.logging.LoggerComponent  : warn message
-2021-09-11 12:53:11.451  INFO 215517 --- [main] c.s.spring.boot.logging.LoggerComponent  : info message
