@@ -12,14 +12,32 @@
     <modelVersion>4.0.0</modelVersion>
 
     <modules>
-        <module>spring-core</module>
+        <!-- java core -->
+        <module>fundamentals</module>
+        <module>testing</module>
+        <module>java-advanced</module>
+        <module>design-patterns</module>
+        <module>java-advanced-code</module>
+
+        <!-- persistence -->
+        <module>sql</module>
+        <module>nosql</module>
+        <module>jdbc</module>
+        <module>hibernate</module>
+        <module>spring-data-jpa</module>
+
+        <!-- spring -->
+        <module>spring-core</module>            <!-- no boot -->
+
+        <!-- parent-boot-2 -->
         <module>parent-boot-2</module>
         <module>spring-boot</module>
-        <module>spring-data-jpa</module>
+
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- set java version -->
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
 
