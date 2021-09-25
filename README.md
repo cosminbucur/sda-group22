@@ -1,23 +1,46 @@
 # Group 22
 
 ## Project structure
-The project contains multiple sub modules, each with a similar structure:
+The project contains multiple sub-modules, each with a similar structure:
 
-        course name (ex: java-advanced)
+        module name (ex: java-advanced)
             scr.main.java.com.sda.advanced (packages)
                 topic (ex: collections)
                     subtopic (ex: map)
-                        ex1 (proposed exercise)
-                        slide1 (code from the first slide)
-                        how (practical use of a topic)
+                        code examples
 
 ---
 
-## Courses
+Courses
 ---
+## java core
+- fundamentals
+- testing
+- java-advanced
+- design-patterns
 
-### spring-core
+## persistence
+- sql
+- jdbc
+- hibernate
+- spring-data-jpa
 
+## spring
+- spring-core
+- parent-boot-2
+- spring-boot
+
+## web
+- spring-thymeleaf
+- spring-boot-rest
+
+## security
+- spring-security-memory
+- spring-security-jpa-mysql
+- spring-security-thymeleaf
+
+## testing
+- testing-advanced
 
 ## How to get it on your computer
 

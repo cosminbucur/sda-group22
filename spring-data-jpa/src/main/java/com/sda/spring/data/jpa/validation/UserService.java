@@ -13,10 +13,12 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// evaluate the constraint annotations on method parameters
+// validate service or controller, persistence layer validation is too late
 @Validated
 @Service
 public class UserService {
-
+    
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private final UserRepository userRepository;
