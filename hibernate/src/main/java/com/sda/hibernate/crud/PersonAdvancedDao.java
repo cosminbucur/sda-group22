@@ -1,6 +1,6 @@
-package com.bucur.crud;
+package com.sda.hibernate.crud;
 
-import com.bucur.config.HibernateUtil;
+import com.sda.hibernate.config.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -34,7 +34,7 @@ public class PersonAdvancedDao {
      *
      * @param person transient person to be persisted
      */
-    public void create(Person person) {
+    public void create(com.sda.hibernate.crud.Person person) {
         Transaction transaction = null;
         try (Session session = openSession()) {
             transaction = session.beginTransaction();
