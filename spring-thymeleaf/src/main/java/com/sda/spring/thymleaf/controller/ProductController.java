@@ -6,8 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -38,4 +42,26 @@ public class ProductController {
         return "index";
     }
 
+    @GetMapping("/products/{id}/edit")
+    public String showEditForm(Model model,
+                               @PathVariable Long id) {
+
+        model.addAttribute("product", productService.findById(id));
+        return "product-edit";
+    }
+
+    @PostMapping("/products/{id}/edit")
+    public String edit(
+            @PathVariable Long id,
+            @ModelAttribute Product product) {
+
+            productService.update(product);
+            return "redirect:/products";
+    }
+    
+    @GetMapping("/products/{id}/delete")
+    public String delete(@PathVariable long id) {
+        productService.delete(id);
+        return "redirect:/products";
+    }
 }

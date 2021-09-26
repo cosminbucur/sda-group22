@@ -10,24 +10,33 @@
 <div align="center">
     <h1>Product list</h1>
 
-    <!-- view engine: add data from java -->
-
     <table>
         <!-- table header -->
         <thead>
-            <tr>
-                <th>Product ID</th>
-                <th>Name</th>
-                <th>Price</th>
-            </tr>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
         </thead>
+
+        <!-- table body -->
         <tbody>
-            <!-- product entry -->
-            <tr th:each="product : ${productsInView}">
-                <td th:text="${product.id}"></td>
-                <td th:text="${product.name}"></td>
-                <td th:text="${product.price}"></td>
-            </tr>
+
+        <!-- product entry -->
+        <tr th:each="product : ${productsInView}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+
+            <!-- action buttons -->
+            <td>
+                <div class="actions">
+                    <a th:href="@{/products/{id}/edit(id = ${product.id})}">Edit</a>
+                    <a th:href="@{/products/{id}/delete(id = ${product.id})}">Delete</a>
+                </div>
+            </td>
+        </tr>
         </tbody>
     </table>
 
