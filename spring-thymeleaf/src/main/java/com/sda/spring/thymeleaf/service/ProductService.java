@@ -1,7 +1,8 @@
-package com.sda.spring.thymleaf.service;
+package com.sda.spring.thymeleaf.service;
 
-import com.sda.spring.thymleaf.model.Product;
-import com.sda.spring.thymleaf.repository.ProductRepository;
+import com.sda.spring.thymeleaf.dto.ProductUpdate;
+import com.sda.spring.thymeleaf.model.Product;
+import com.sda.spring.thymeleaf.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -29,21 +29,33 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    // update
-    public void update(Product product) {
-        log.info("update product {}", product);
+    // find all
+    public List<Product> findAll() {
+        log.info("finding all products");
+        return productRepository.findAll();
+    }
 
-        String name = product.getName();
-        Optional<Product> optionalProduct = productRepository.findByNameIgnoreCase(name);
-        if (optionalProduct.isPresent()) {
-            Product foundProduct = optionalProduct.get();
-            if (foundProduct.getName().equals(product.getName())) {
-                productRepository.save(product);
-            } else {
-                log.error("product with name {} already exists", name);
-                throw new ResourceAlreadyExistsException("product with name " + name + " already exists");
-            }
-        }
+    // find by id
+    public Product findById(Long id) {
+        log.info("finding by id");
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("product not found"));
+    }
+
+    // update
+    public void update(Long productId, ProductUpdate productData) {
+        log.info("update product {}", productData);
+
+        productRepository.findById(productId)
+                .map(existingProduct -> updateEntity(productData, existingProduct))
+                .map(updatedProduct -> productRepository.save(updatedProduct))
+                .orElseThrow(() -> new RuntimeException("product not found"));
+    }
+
+    private Product updateEntity(ProductUpdate productData, Product existingProduct) {
+        existingProduct.setName(productData.getName());
+        existingProduct.setPrice(productData.getPrice());
+        return existingProduct;
     }
 
     public void updateNew(Product product) {
@@ -57,19 +69,6 @@ public class ProductService {
                     log.error("product with name {} already exists", name);
                     throw new ResourceAlreadyExistsException("product with name " + name + " already exists");
                 });
-    }
-
-    // find all
-    public List<Product> findAll() {
-        log.info("finding all products");
-        return productRepository.findAll();
-    }
-
-    // find by id
-    public Product findById(Long id) {
-        log.info("finding by id");
-        return productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("product not found"));
     }
 
     // delete

@@ -33,6 +33,8 @@
         <module>parent-boot-2</module>
         <module>spring-boot</module>
         <module>spring-thymeleaf</module>
+        <module>spring-security-memory</module>
+        <module>spring-security-jpa-mysql</module>
 
     </modules>
 

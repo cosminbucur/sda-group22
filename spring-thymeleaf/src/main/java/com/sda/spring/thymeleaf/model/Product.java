@@ -1,4 +1,4 @@
-package com.sda.spring.thymleaf.model;
+package com.sda.spring.thymeleaf.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

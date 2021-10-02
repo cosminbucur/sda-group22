@@ -1,6 +1,6 @@
-package com.sda.spring.thymleaf.repository;
+package com.sda.spring.thymeleaf.repository;
 
-import com.sda.spring.thymleaf.model.Product;
+import com.sda.spring.thymeleaf.model.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

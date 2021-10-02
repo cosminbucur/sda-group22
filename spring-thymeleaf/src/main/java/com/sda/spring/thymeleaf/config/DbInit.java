@@ -1,7 +1,7 @@
-package com.sda.spring.thymleaf.config;
+package com.sda.spring.thymeleaf.config;
 
-import com.sda.spring.thymleaf.model.Product;
-import com.sda.spring.thymleaf.service.ProductService;
+import com.sda.spring.thymeleaf.model.Product;
+import com.sda.spring.thymeleaf.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
