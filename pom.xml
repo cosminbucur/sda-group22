@@ -35,6 +35,8 @@
         <module>spring-thymeleaf</module>
         <module>spring-security-memory</module>
         <module>spring-security-jpa-mysql</module>
+        <module>spring-security-thymeleaf</module>
+        <module>spring-boot-rest</module>
 
     </modules>
 
