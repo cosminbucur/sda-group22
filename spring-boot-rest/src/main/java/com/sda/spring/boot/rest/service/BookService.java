@@ -1,13 +1,31 @@
 package com.sda.spring.boot.rest.service;
 
-public class BookService {
+import com.sda.spring.boot.rest.dto.BookRequest;
+import com.sda.spring.boot.rest.dto.BookResponse;
 
-    /*
-    POST /api/books
-    GET /api/books
+import java.util.List;
+import java.util.Map;
 
-    PUT /api/books/{id}
-    GET /api/books/{id}
-    DELETE /api/books/{id}
-     */
+public interface BookService {
+
+    List<BookResponse> findAll();
+
+    BookResponse findById(Long id);
+
+    BookResponse save(BookRequest createBookRequest);
+
+    BookResponse update(Long id, BookRequest updateRequest);
+
+    BookResponse partialUpdate(Long id, Map<String, Object> updates);
+
+    void delete(Long id);
+
+    // find using filter
+    List<BookResponse> findByAuthor(String author);
+
+    // find using derived query
+    List<BookResponse> findByAuthorDerived(String author);
+
+    // find using JPQL
+    List<BookResponse> findByAuthorQuery(String author);
 }
